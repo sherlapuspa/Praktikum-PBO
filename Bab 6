@@ -1,0 +1,239 @@
+package Bab6;
+
+import java.util.*;
+
+class Soal_1 {
+
+    public static void HimpunanTB(HashSet a, HashSet b) {
+        Object[] tinggiTeamA = a.toArray();
+        Object[] tinggiTeamB = b.toArray();
+        Arrays.sort(tinggiTeamA);
+        Arrays.sort(tinggiTeamB);
+        System.out.println("=Himpunan TB=");
+        System.out.println("TB Team A = " + Arrays.toString(tinggiTeamA));
+        System.out.println("TB Team B = " + Arrays.toString(tinggiTeamB));
+        System.out.println();
+    }
+
+    public static void HimpunanBB(HashSet a, HashSet b) {
+        Object[] beratTeamA = a.toArray();
+        Object[] beratTeamB = b.toArray();
+        Arrays.sort(beratTeamA);
+        Arrays.sort(beratTeamB);
+        System.out.println("=Himpunan BB=");
+        System.out.println("BB Team A = " + Arrays.toString(beratTeamA));
+        System.out.println("BB Team B = " + Arrays.toString(beratTeamB));
+        System.out.println();
+    }
+
+    public static void MaksMinTB(HashSet a, HashSet b) {
+        Object[] teamA = a.toArray();
+        Object[] teamB = b.toArray();
+        Arrays.sort(teamA);
+        Arrays.sort(teamB);
+        
+        //min = indeks ke-0 dari arrray
+        int minA = (int) teamA[0];
+        int minB = (int) teamB[0];
+
+        //maks = indeks ke-n dari array
+        int maksA = (int) teamA[teamA.length - 1];
+        int maksB = (int) teamB[teamB.length - 1];
+
+        //rentang = maks-min
+        int rentangTeamA = maksA - minA;
+        int rentangTeamB = maksB - minB;
+
+        System.out.println("Maks Team A: " + maksA);
+        System.out.println("Min Team A: " + minA);
+        System.out.println("Rentang TB Team A               = " + rentangTeamA);
+        System.out.println("Maks Team B: " + maksB);
+        System.out.println("Min Team B: " + minB);
+        System.out.println("Rentang TB Team B               = " + rentangTeamB);
+    }
+
+    private static void MaksMinBB(HashSet a, HashSet b) {
+        Object[] teamA = a.toArray();
+        Object[] teamB = b.toArray();
+        Arrays.sort(teamA);
+        Arrays.sort(teamB);
+
+
+        //min = indeks ke-0 dari arrray
+        int minA = (int) teamA[0];
+        int minB = (int) teamB[0];
+
+        //maks = indeks ke-n dari array
+        int maksA = (int) teamA[teamA.length - 1];
+        int maksB = (int) teamB[teamB.length - 1];
+
+        //rentang = maks-min
+        int rentangTeamA = maksA - minA;
+        int rentangTeamB = maksB - minB;
+
+        System.out.println("Maks Team A: " + maksA);
+        System.out.println("Min Team A: " + minA);
+        System.out.println("Rentang BB Team A               = " + rentangTeamA);
+        System.out.println("Maks Team B: " + maksB);
+        System.out.println("Min Team B: " + minB);
+        System.out.println("Rentang BB Team B               = " + rentangTeamB);
+    }
+
+    public static void tbSama(HashSet c, HashSet d) {
+        Object[] tinggiTeamA = c.toArray();
+        Object[] tinggiTeamB = d.toArray();
+        Arrays.sort(tinggiTeamA);
+        Arrays.sort(tinggiTeamB);
+        c.retainAll(d);
+        System.out.println("TB sama  = " + c);
+    }
+
+    private static void bbSama(HashSet c, HashSet d) {
+        Object[] beratTeamA = c.toArray();
+        Object[] beratTeamB = d.toArray();
+        Arrays.sort(beratTeamA);
+        Arrays.sort(beratTeamB);
+        c.retainAll(d);
+        System.out.println("BB sama = " + c);
+    }
+
+    public static void KomplemenTB(HashSet a, HashSet b) {
+        a.removeAll(b);
+        System.out.println("TB Team A yang tidak ada pada Team B = " + a);
+    }
+
+    public static void KomplemenBB(HashSet a, HashSet b) {
+        b.removeAll(a);
+        System.out.println("BB Team B yang tidak ada pada Team A  = " + b);
+    }
+
+    // Main Class
+    public static void main(String[] args) {
+        HashSet<Integer> beratTeamA = new HashSet<>();
+        HashSet<Integer> tinggiTeamA = new HashSet<>();
+        HashSet<Integer> beratTeamB = new HashSet<>();
+        HashSet<Integer> tinggiTeamB = new HashSet<>();
+
+        tinggiTeamA.add(168);
+        tinggiTeamA.add(170);
+        tinggiTeamA.add(165);
+        tinggiTeamA.add(168);
+        tinggiTeamA.add(172);
+        tinggiTeamA.add(170);
+        tinggiTeamA.add(169);
+        tinggiTeamA.add(165);
+        tinggiTeamA.add(171);
+        tinggiTeamA.add(166);
+
+        beratTeamA.add(50);
+        beratTeamA.add(60);
+        beratTeamA.add(56);
+        beratTeamA.add(55);
+        beratTeamA.add(60);
+        beratTeamA.add(70);
+        beratTeamA.add(66);
+        beratTeamA.add(56);
+        beratTeamA.add(72);
+        beratTeamA.add(56);
+
+        tinggiTeamB.add(170);
+        tinggiTeamB.add(167);
+        tinggiTeamB.add(165);
+        tinggiTeamB.add(166);
+        tinggiTeamB.add(168);
+        tinggiTeamB.add(175);
+        tinggiTeamB.add(172);
+        tinggiTeamB.add(171);
+        tinggiTeamB.add(168);
+        tinggiTeamB.add(169);
+
+        beratTeamB.add(66);
+        beratTeamB.add(60);
+        beratTeamB.add(59);
+        beratTeamB.add(58);
+        beratTeamB.add(58);
+        beratTeamB.add(71);
+        beratTeamB.add(68);
+        beratTeamB.add(68);
+        beratTeamB.add(65);
+        beratTeamB.add(60);
+
+        System.out.println("-----------------------------------------------------------------------");
+        System.out.println("|                           DATA Team FUTSAL                           |");
+        System.out.println("-----------------------------------------------------------------------");
+
+        HimpunanTB(tinggiTeamA, tinggiTeamB);
+        HimpunanBB(beratTeamA, beratTeamB);
+
+        
+        System.out.println("c)");
+        MaksMinTB(tinggiTeamA, tinggiTeamB);
+        System.out.println("d)");
+        MaksMinBB(beratTeamA, beratTeamB);
+        System.out.println();
+        System.out.println("a)");
+        tbSama(tinggiTeamA, tinggiTeamB);
+        System.out.println("b)");
+        bbSama(beratTeamA, beratTeamB);
+        System.out.println();
+        System.out.println("e)");
+        KomplemenTB(tinggiTeamA, tinggiTeamB);
+        System.out.println("f)");
+        KomplemenBB(beratTeamA, beratTeamB);
+    }
+}
+
+class soal_2 {
+
+    public static void main(String[] args) {
+
+        Map<Integer, Integer> hmA = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> hmB = new HashMap<Integer, Integer>();
+
+        hmA.put(168, 50);
+        hmA.put(170, 60);
+        hmA.put(165, 56);
+        hmA.put(168, 55);
+        hmA.put(172, 60);
+        hmA.put(170, 70);
+        hmA.put(169, 66);
+        hmA.put(165, 56);
+        hmA.put(171, 72);
+        hmA.put(166, 56);
+
+        hmB.put(170, 66);
+        hmB.put(167, 60);
+        hmB.put(165, 59);
+        hmB.put(166, 58);
+        hmB.put(168, 58);
+        hmB.put(175, 71);
+        hmB.put(172, 68);
+        hmB.put(171, 68);
+        hmB.put(168, 65);
+        hmB.put(169, 60);
+
+        System.out.println("b)");
+        System.out.println("Data            : " + hmB);
+        hmB.replace(168, 66);
+        System.out.println("Updated Data    : " + hmB);
+
+        Map TinggiBadanSama = new HashMap(hmA);
+        TinggiBadanSama.keySet().retainAll(hmB.keySet());
+        System.out.println("c)");
+        System.out.println("TB & BB tim A yang TBnya sama dengan tim B = " + TinggiBadanSama);
+
+        Map M = new HashMap(TinggiBadanSama);
+        Set S = M.entrySet();
+        Iterator I = S.iterator();
+        System.out.println("d)");
+        System.out.print("Hasil seleksi peserta : ");
+        while (I.hasNext()) {
+            Map.Entry entry = (Map.Entry) I.next();
+            int x = (int) entry.getKey();
+            if (x >= 168) {
+                System.out.print(x + " ");
+            }
+        }
+        System.out.println();
+    }
+}
